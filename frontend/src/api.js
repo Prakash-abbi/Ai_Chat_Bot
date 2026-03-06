@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+  process.env.REACT_APP_API_URL || "https://minichat-bot.onrender.com/api";
 
 export function getToken() {
   return localStorage.getItem("token");
