@@ -1,0 +1,364 @@
+:root {
+  --bg: #0b0f17;
+  --panel: #101826;
+  --panel2: #0f1522;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.6);
+  --accent: #7c5cff;
+  --accent2: #35c2ff;
+  --danger: #ff5c7a;
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1000px 600px at 20% 10%, rgba(124, 92, 255, 0.25), transparent 50%),
+    radial-gradient(900px 500px at 80% 20%, rgba(53, 194, 255, 0.18), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.primaryBtn,
+.secondaryBtn,
+.ghostBtn,
+.linkBtn {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.primaryBtn:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border);
+}
+.secondaryBtn:active {
+  transform: translateY(1px);
+}
+
+.ghostBtn {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.linkBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.muted {
+  color: var(--muted);
+}
+.error {
+  color: var(--danger);
+}
+
+/* Auth */
+.authShell {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.authCard {
+  width: min(420px, 100%);
+  background: rgba(16, 24, 38, 0.75);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+.authHeader .brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+}
+.authHeader .subtitle {
+  color: var(--muted);
+  margin-top: 6px;
+}
+.authForm {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+.authForm label span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.authForm input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+.authError {
+  background: rgba(255, 92, 122, 0.12);
+  border: 1px solid rgba(255, 92, 122, 0.25);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+.authFooter {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+/* App layout */
+.appShell {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  background: rgba(15, 21, 34, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebarTop {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+}
+
+.sidebarList {
+  padding: 8px;
+  overflow: auto;
+  flex: 1;
+}
+
+.chatRow {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: grid;
+  gap: 4px;
+}
+.chatRow:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.chatRowActive {
+  background: rgba(124, 92, 255, 0.12);
+  border-color: rgba(124, 92, 255, 0.25);
+}
+.chatRowTitle {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chatRowMeta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.main {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16, 24, 38, 0.35);
+  backdrop-filter: blur(10px);
+}
+.topbarTitle {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.topbarMeta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chatBody {
+  padding: 18px 18px 6px;
+  overflow: auto;
+}
+
+.emptyState {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+.emptyTitle {
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.emptySub {
+  max-width: 420px;
+}
+
+.msg {
+  max-width: 820px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.msgUser {
+  margin-left: auto;
+  background: rgba(124, 92, 255, 0.12);
+  border-color: rgba(124, 92, 255, 0.25);
+}
+.msgAI {
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.04);
+}
+.msgRole {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.msgContent {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Markdown + code */
+.md {
+  white-space: normal;
+}
+.md :where(p, ul, ol, pre, table, blockquote) {
+  margin: 0.65em 0;
+}
+.md :where(ul, ol) {
+  padding-left: 1.2em;
+}
+.md pre {
+  overflow: auto;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+}
+.md code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.92em;
+}
+.md :not(pre) > code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.22);
+}
+.md blockquote {
+  margin-left: 0;
+  padding-left: 12px;
+  border-left: 3px solid rgba(124, 92, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
+}
+.md table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.md th,
+.md td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 10px;
+  vertical-align: top;
+}
+.md th {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.composer {
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+  background: rgba(16, 24, 38, 0.35);
+  backdrop-filter: blur(10px);
+}
+.composerInner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+.composerInput {
+  resize: none;
+  min-height: 44px;
+  max-height: 200px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .appShell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
